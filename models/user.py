@@ -13,7 +13,9 @@ class UserModel(db.Model):
     reservations = db.relationship('ReservationModel')
 
 
-    def __init__(self,_id, user_card):
+    def __init__(self,_id, user_card, max_reservations):
         self.id = _id
         self.user_card = user_card
+        self.max_reservations = max_reservations
+
 

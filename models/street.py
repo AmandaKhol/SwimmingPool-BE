@@ -12,3 +12,8 @@ class StreetModel(db.Model):
 
     # Back reference
     reservations = db.relationship('ReservationModel')
+
+    def __init__(self,_id, max_swimmers):
+        self.id = _id
+        self.max_swimmers = max_swimmers
+

@@ -17,8 +17,6 @@ class ReservationModel(db.Model):
     street = db.relationship('StreetModel')
     hour = db.relationship('HourModel')
 
-
-
-
-    def __init__(self,_id):
+    def __init__(self,_id, date):
         self.id = _id
+        self.date = date

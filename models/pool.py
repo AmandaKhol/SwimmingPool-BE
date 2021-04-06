@@ -11,6 +11,7 @@ class PoolModel(db.Model):
     #Back reference
     streets = db.relationship('StreetModel')
 
-    def __init__(self, _id, pool_name):
+    def __init__(self, _id, pool_name, price):
         self.id = _id
         self.pool_name = pool_name
+        self.price = price

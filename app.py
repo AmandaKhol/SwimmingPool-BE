@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restful import Api
 
+from resources.hour import HourList
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -11,7 +13,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
-
+api.add_resource(HourList, '/hours')
 
 if __name__ == '__main__':
     from db import db

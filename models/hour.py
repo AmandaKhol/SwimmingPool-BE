@@ -9,7 +9,11 @@ class HourModel(db.Model):
     hour = db.Column(db.String)
 
     # Back reference
-    reservations = db.relationship('ReservationModel')
+    # reservations = db.relationship('ReservationModel')
 
-    def __init__(self,_id):
+    def __init__(self,_id, hour):
         self.id = _id
+        self.hour = hour
+
+    def json(self):
+        return {'id_hour': self.id, 'hour': self.hour}
