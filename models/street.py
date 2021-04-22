@@ -1,19 +1,19 @@
 import sqlite3
 from db import db
 
-
 class StreetModel(db.Model):
     __tablename__ = 'streets'
 
     id = db.Column(db.Integer, primary_key=True)
-    max_swimmers = db.Column(db.Integer)
 
-    pool = db.Column(db.Integer, db.ForeignKey('pool.id'))
+    #Back reference
+    pool_id = db.Column(db.String, db.ForeignKey('pools.id'))
+    pool = db.relationship('PoolModel')
 
-    # Back reference
-    reservations = db.relationship('ReservationModel')
 
-    def __init__(self,_id, max_swimmers):
+    def __init__(self, _id, pool_id):
         self.id = _id
-        self.max_swimmers = max_swimmers
+        self.pool_id = pool_id
 
+    def json(self):
+        return {'id': self.id, 'pool_id': self.pool_id}

@@ -8,11 +8,11 @@ class HourModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     hour = db.Column(db.String)
 
-    # Back reference
-    # reservations = db.relationship('ReservationModel')
+    # pool_id = db.Column(db.String, db.ForeignKey('pools.id'))
+    # pool = db.relationship('PoolModel')
 
-    def __init__(self,_id, hour):
-        self.id = _id
+
+    def __init__(self, hour):
         self.hour = hour
 
     def json(self):
