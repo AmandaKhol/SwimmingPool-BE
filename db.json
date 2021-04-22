@@ -1,14 +1,4 @@
-from flask import Flask, jsonify
-from flask_restful import Api
-from flask_cors import CORS
-
-from resources.hour import HourList
-
-app = Flask(__name__)
-CORS(app=app)
-api = Api(app)
-
-centers = [
+{"centers": [
         {
           "id": "al",
           "name": "Aluche",
@@ -43,9 +33,4 @@ centers = [
           ]
         }
 ]
-
-
-api.add_resource(HourList, '/')
-
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+}
