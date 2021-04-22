@@ -14,8 +14,8 @@ class PoolModel(db.Model):
 
     def json(self):
         return {
-                'pool_name': self.pool_name
-                # 'streets': [street.json() for street in self.streets.all()]
+                'pool_name': self.pool_name,
+                'streets': [street.json() for street in self.streets.all()]
         }
 
     @classmethod
