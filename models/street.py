@@ -11,9 +11,12 @@ class StreetModel(db.Model):
     pool = db.relationship('PoolModel')
 
 
-    def __init__(self, _id, pool_id):
-        self.id = _id
+    def __init__(self, pool_id):
         self.pool_id = pool_id
 
     def json(self):
         return {'id': self.id, 'pool_id': self.pool_id}
+
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()

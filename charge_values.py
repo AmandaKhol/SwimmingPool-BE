@@ -18,7 +18,7 @@ select_query = "SELECT * FROM hours"
 create_table = "CREATE TABLE pools (id text, pool_name text)"
 cursor.execute(create_table)
 
-pools = [("al", "Aluche"), ("ch", "Carabanchel"), ("vk", "Vallecas")]
+pools = [("al", "aluche"), ("ch", "carabanchel"), ("vk", "vallecas")]
 insert_query = "INSERT INTO pools VALUES (?,?)"
 cursor.executemany(insert_query, pools)
 

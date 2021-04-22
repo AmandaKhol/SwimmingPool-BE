@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_cors import CORS
-from models.street import StreetModel
+from resources.street import StreetList
 from resources.hour import HourList
 from resources.pool import Pool, PoolList
 
@@ -18,7 +18,8 @@ def create_tables():
     db.create_all()
 
 api.add_resource(PoolList, '/')
-api.add_resource(Pool, '/<string:pool_id>')
+api.add_resource(Pool, '/<string:name>')
+api.add_resource(StreetList, '/streets')
 #api.add_resource(HourList, '/')
 api.add_resource(HourList, '/<string:poolId>')
 
